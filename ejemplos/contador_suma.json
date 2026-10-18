@@ -1,0 +1,194 @@
+{
+  "@context": "https://example.org/ontologia.jsonld",
+  "versionFormato": "1.0",
+  "@graph": [
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 1,
+      "linea": 1,
+      "bloque": null,
+      "iteracion": null,
+      "instruccion": "contador = 0",
+      "modifica": {
+        "@type": "EstadoDeMemoria",
+        "variable": "contador",
+        "ambito": "global",
+        "valorAnterior": null,
+        "valorNuevo": 0
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 2,
+      "linea": 2,
+      "bloque": null,
+      "iteracion": null,
+      "instruccion": "suma = 0",
+      "modifica": {
+        "@type": "EstadoDeMemoria",
+        "variable": "suma",
+        "ambito": "global",
+        "valorAnterior": null,
+        "valorNuevo": 0
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 3,
+      "linea": 3,
+      "bloque": "while_linea3",
+      "iteracion": 0,
+      "instruccion": "evaluar contador < 3",
+      "resultado": true,
+      "evalua": {
+        "@type": "Condicion",
+        "@id": "condicion_linea3",
+        "expresion": "contador < 3",
+        "dependeDe": [
+          "contador"
+        ]
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 4,
+      "linea": 4,
+      "bloque": "while_linea3",
+      "iteracion": 1,
+      "instruccion": "contador += 1",
+      "modifica": {
+        "@type": "EstadoDeMemoria",
+        "variable": "contador",
+        "ambito": "global",
+        "valorAnterior": 0,
+        "valorNuevo": 1
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 5,
+      "linea": 5,
+      "bloque": "while_linea3",
+      "iteracion": 1,
+      "instruccion": "suma += contador",
+      "modifica": {
+        "@type": "EstadoDeMemoria",
+        "variable": "suma",
+        "ambito": "global",
+        "valorAnterior": 0,
+        "valorNuevo": 1
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 6,
+      "linea": 3,
+      "bloque": "while_linea3",
+      "iteracion": 1,
+      "instruccion": "evaluar contador < 3",
+      "resultado": true,
+      "evalua": {
+        "@type": "Condicion",
+        "@id": "condicion_linea3",
+        "expresion": "contador < 3",
+        "dependeDe": [
+          "contador"
+        ]
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 7,
+      "linea": 4,
+      "bloque": "while_linea3",
+      "iteracion": 2,
+      "instruccion": "contador += 1",
+      "modifica": {
+        "@type": "EstadoDeMemoria",
+        "variable": "contador",
+        "ambito": "global",
+        "valorAnterior": 1,
+        "valorNuevo": 2
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 8,
+      "linea": 5,
+      "bloque": "while_linea3",
+      "iteracion": 2,
+      "instruccion": "suma += contador",
+      "modifica": {
+        "@type": "EstadoDeMemoria",
+        "variable": "suma",
+        "ambito": "global",
+        "valorAnterior": 1,
+        "valorNuevo": 3
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 9,
+      "linea": 3,
+      "bloque": "while_linea3",
+      "iteracion": 2,
+      "instruccion": "evaluar contador < 3",
+      "resultado": true,
+      "evalua": {
+        "@type": "Condicion",
+        "@id": "condicion_linea3",
+        "expresion": "contador < 3",
+        "dependeDe": [
+          "contador"
+        ]
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 10,
+      "linea": 4,
+      "bloque": "while_linea3",
+      "iteracion": 3,
+      "instruccion": "contador += 1",
+      "modifica": {
+        "@type": "EstadoDeMemoria",
+        "variable": "contador",
+        "ambito": "global",
+        "valorAnterior": 2,
+        "valorNuevo": 3
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 11,
+      "linea": 5,
+      "bloque": "while_linea3",
+      "iteracion": 3,
+      "instruccion": "suma += contador",
+      "modifica": {
+        "@type": "EstadoDeMemoria",
+        "variable": "suma",
+        "ambito": "global",
+        "valorAnterior": 3,
+        "valorNuevo": 6
+      }
+    },
+    {
+      "@type": "PasoDeEjecucion",
+      "numeroPaso": 12,
+      "linea": 3,
+      "bloque": "while_linea3",
+      "iteracion": 3,
+      "instruccion": "evaluar contador < 3",
+      "resultado": false,
+      "evalua": {
+        "@type": "Condicion",
+        "@id": "condicion_linea3",
+        "expresion": "contador < 3",
+        "dependeDe": [
+          "contador"
+        ]
+      }
+    }
+  ]
+}
