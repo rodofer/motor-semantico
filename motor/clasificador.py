@@ -24,3 +24,17 @@ def es_ultima_evaluacion(traza: dict, numero_paso: int) -> bool:
         if 'evalua' in otro and otro['evalua']['@id'] == id_condicion:
             evaluaciones.append(otro['numeroPaso'])
     return numero_paso == max(evaluaciones)
+
+
+def clasificar(traza: dict, numero_paso: int, respuesta: int | bool) -> str:
+    paso = buscar_paso(traza, numero_paso)
+    if 'modifica' in paso:
+        variable = paso['modifica']['variable']
+        anterior = paso['modifica']['valorAnterior']
+        if variable in variables_de_control(traza) and respuesta == anterior:
+            return 'VariableDeControlNoActualizada'
+        return 'ValorIncorrecto'
+    else:
+        if es_ultima_evaluacion(traza, numero_paso):
+            return 'DesfaseDeConteo'
+        return 'CondicionErronea'
