@@ -27,7 +27,7 @@ Valida la respuesta del estudiante para un paso de la traza.
 | `tipoError` | regla (versión 1.0) |
 |---|---|
 | `VariableDeControlNoActualizada` | Paso `modifica` sobre la variable de control; la respuesta es igual a `valorAnterior` |
-| `DesfaseDeConteo` | Paso `evalua` incorrecto, y es la última evaluación de la traza (off-by-one) |
+| `DesfaseDeConteo` | Paso `evalua` incorrecto, y es la última evaluación de su condición (mismo `@id`), es decir, la que termina el ciclo (off-by-one) |
 | `CondicionErronea` | Paso `evalua` incorrecto, en cualquier otra evaluación |
 | `ValorIncorrecto` | Cualquier otro error que aún no se clasifica |
 
