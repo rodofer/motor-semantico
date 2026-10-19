@@ -1,0 +1,17 @@
+from motor.comparador import comparar
+from motor.clasificador import clasificar
+from motor.retroalimentacion import generar_mensaje
+
+
+def validar(traza: dict, numero_paso: int, respuesta: int | bool) -> dict:
+    tipo_error = None
+    correcto, valor_esperado = comparar(traza, numero_paso, respuesta)
+    if not correcto:
+        tipo_error = clasificar(traza, numero_paso, respuesta)
+    return {
+        'numeroPaso': numero_paso,
+        'correcto': correcto,
+        'valorEsperado': valor_esperado,
+        'tipoError': tipo_error,
+        'mensaje': generar_mensaje(traza, numero_paso, tipo_error),
+    }
