@@ -3,7 +3,7 @@ import json
 import pytest
 
 from motor.comparador import PasoInexistenteError, TipoDeRespuestaInvalidoError
-from motor.pipeline import validar
+from motor.pipeline import VersionNoSoportadaError, validar
 
 
 @pytest.fixture
@@ -37,3 +37,15 @@ def test_paso_inexistente(traza):
 def test_tipo_invalido(traza):
     with pytest.raises(TipoDeRespuestaInvalidoError):
         validar(traza, 4, True)
+
+
+def test_version_no_soportada(traza):
+    traza['versionFormato'] = '2.0'
+    with pytest.raises(VersionNoSoportadaError):
+        validar(traza, 4, 1)
+
+
+def test_traza_sin_version(traza):
+    del traza['versionFormato']
+    with pytest.raises(VersionNoSoportadaError):
+        validar(traza, 4, 1)
