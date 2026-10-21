@@ -74,3 +74,14 @@ def test_version_no_soportada_devuelve_422(traza):
     respuesta = cliente.post('/validar', json=cuerpo)
     assert respuesta.status_code == 422
     assert respuesta.json()['detail']['tipo'] == "VersionNoSoportada"
+
+
+def test_paso_numero_cero_devuelve_422(traza):
+    cuerpo = {
+        'traza': traza,
+        'numeroPaso': 0,
+        'respuesta': 1,
+    }
+    respuesta = cliente.post('/validar', json=cuerpo)
+    assert respuesta.status_code == 422
+    assert respuesta.json()['detail']['tipo'] == "SolicitudInvalida"

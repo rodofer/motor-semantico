@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, StrictInt, StrictBool
+from pydantic import BaseModel, Field, StrictInt, StrictBool
 
 from motor.comparador import PasoInexistenteError, TipoDeRespuestaInvalidoError
 from motor.pipeline import VersionNoSoportadaError, validar
@@ -11,7 +11,7 @@ app = FastAPI(title="Motor semántico del Depurador Visual Interactivo")
 
 class SolicitudValidacion(BaseModel):
     traza: dict
-    numeroPaso: int
+    numeroPaso: int = Field(ge=1)
     respuesta: StrictBool | StrictInt
 
 
