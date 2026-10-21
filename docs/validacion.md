@@ -44,6 +44,7 @@ Responden `{"detail": {"tipo": "...", "mensaje": "..."}}`.
 | `TipoDeRespuestaInvalido` | Entero en un paso `evalua`, o booleano en un paso `modifica` |
 | `VersionNoSoportada` | `versionFormato` de la traza no es 1.x |
 | `SolicitudInvalida` | Falta un campo o tiene un tipo incorrecto |
+| `TrazaInvalida` | Cuando la traza no tiene el campo `@graph` o no es una lista |
 
 ## Ejemplos (traza contador_suma)
 

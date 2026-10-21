@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field, StrictInt, StrictBool
 
 from motor.comparador import PasoInexistenteError, TipoDeRespuestaInvalidoError
 from motor.pipeline import VersionNoSoportadaError, validar
+from motor.validacion import TrazaInvalidaError
 
 app = FastAPI(title="Motor semántico del Depurador Visual Interactivo")
 
@@ -38,3 +39,5 @@ def crear_validacion(solicitud: SolicitudValidacion):
         raise error_422("PasoInexistente", str(e)) from e
     except VersionNoSoportadaError as e:
         raise error_422("VersionNoSoportada", str(e)) from e
+    except TrazaInvalidaError as e:
+        raise error_422("TrazaInvalida", str(e)) from e

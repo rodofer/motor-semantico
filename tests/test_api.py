@@ -76,6 +76,18 @@ def test_version_no_soportada_devuelve_422(traza):
     assert respuesta.json()['detail']['tipo'] == "VersionNoSoportada"
 
 
+def test_traza_sin_graph_devuelve_422(traza):
+    del traza['@graph']
+    cuerpo = {
+        'traza': traza,
+        'numeroPaso': 4,
+        'respuesta': 1,
+    }
+    respuesta = cliente.post('/validar', json=cuerpo)
+    assert respuesta.status_code == 422
+    assert respuesta.json()['detail']['tipo'] == "TrazaInvalida"
+
+
 def test_paso_numero_cero_devuelve_422(traza):
     cuerpo = {
         'traza': traza,

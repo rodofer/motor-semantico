@@ -4,6 +4,7 @@ import pytest
 
 from motor.comparador import PasoInexistenteError, TipoDeRespuestaInvalidoError
 from motor.pipeline import VersionNoSoportadaError, validar
+from motor.validacion import TrazaInvalidaError
 
 
 @pytest.fixture
@@ -48,4 +49,10 @@ def test_version_no_soportada(traza):
 def test_traza_sin_version(traza):
     del traza['versionFormato']
     with pytest.raises(VersionNoSoportadaError):
+        validar(traza, 4, 1)
+
+
+def test_traza_sin_graph(traza):
+    del traza['@graph']
+    with pytest.raises(TrazaInvalidaError):
         validar(traza, 4, 1)
