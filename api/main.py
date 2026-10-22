@@ -7,7 +7,7 @@ from motor.comparador import PasoInexistenteError, TipoDeRespuestaInvalidoError
 from motor.pipeline import VersionNoSoportadaError, validar
 from motor.validacion import TrazaInvalidaError
 
-app = FastAPI(title="Motor semántico del Depurador Visual Interactivo")
+app = FastAPI(title="Motor semántico del Depurador Visual Interactivo", version="0.1.1")
 
 
 class SolicitudValidacion(BaseModel):
