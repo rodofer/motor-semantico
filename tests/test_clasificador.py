@@ -33,7 +33,7 @@ def test_variable_de_control_con_otro_valor(traza):
 
 
 def test_acumulador_no_es_variable_de_control(traza):
-    assert clasificar(traza, 5, 0) == 'ValorIncorrecto'
+    assert clasificar(traza, 8, 1) == 'ValorIncorrecto'
 
 
 def test_condicion_erronea(traza):
@@ -42,3 +42,17 @@ def test_condicion_erronea(traza):
 
 def test_desfase_de_conteo(traza):
     assert clasificar(traza, 12, True) == 'DesfaseDeConteo'
+
+
+def test_error_de_secuencia_primera_vuelta(traza):
+    # suma += contador con el contador del inicio de la vuelta: 0 + 0 = 0
+    assert clasificar(traza, 5, 0) == 'ErrorDeSecuencia'
+
+
+def test_error_de_secuencia_segunda_vuelta(traza):
+    # suma += contador con el contador del inicio de la vuelta: 1 + 1 = 2
+    assert clasificar(traza, 8, 2) == 'ErrorDeSecuencia'
+
+
+def test_valor_incorrecto_no_es_secuencia(traza):
+    assert clasificar(traza, 8, 7) == 'ValorIncorrecto'
